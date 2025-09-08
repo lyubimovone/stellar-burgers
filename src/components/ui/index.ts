@@ -15,3 +15,5 @@ export * from './order-status';
 export * from './orders-list';
 export * from './preloader';
 export * from './profile-menu';
+export * from './pages/login';
+export * from './pages/register';

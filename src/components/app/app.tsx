@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from '../../services/store';
 import { getIngredients } from '../../services/slices/ingredients-slice';
+import { ProtectedRoute } from '../protected-route/protected-route';
 
 import {
   ConstructorPage,
@@ -16,9 +17,6 @@ import {
 } from '@pages';
 
 import { AppHeader, Modal, OrderInfo, IngredientDetails } from '@components';
-
-const ProtectedRoute = ({ children }: { children: React.ReactElement }) =>
-  children;
 
 function App() {
   const dispatch = useDispatch();
