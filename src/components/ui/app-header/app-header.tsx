@@ -32,7 +32,6 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => {
               Конструктор
             </p>
           </Link>
-
           <Link
             to='/feed'
             className={`${styles.link} ${isFeedActive ? styles.link_active : ''}`}
@@ -43,18 +42,22 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => {
         </div>
 
         <div className={styles.logo}>
-          <Logo className='' />
+          <Link to='/'>
+            <Logo className='' />
+          </Link>
         </div>
 
-        <Link
-          to='/profile'
-          className={`${styles.link} ${isProfileActive ? styles.link_active : ''}`}
-        >
-          <ProfileIcon type={isProfileActive ? 'primary' : 'secondary'} />
-          <p className='text text_type_main-default ml-2'>
-            {userName || 'Личный кабинет'}
-          </p>
-        </Link>
+        <div className={styles.link_position_last}>
+          <Link
+            to='/profile'
+            className={`${styles.link} ${isProfileActive ? styles.link_active : ''}`}
+          >
+            <ProfileIcon type={isProfileActive ? 'primary' : 'secondary'} />
+            <p className='text text_type_main-default ml-2'>
+              {userName || 'Личный кабинет'}
+            </p>
+          </Link>
+        </div>
       </nav>
     </header>
   );

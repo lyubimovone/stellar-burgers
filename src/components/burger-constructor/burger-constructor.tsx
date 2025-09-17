@@ -5,11 +5,12 @@ import { BurgerConstructorUI } from '@ui';
 import { createOrder } from '../../services/slices/order-slice';
 import { clearOrder } from '../../services/slices/order-slice';
 import { clearConstructor } from '../../services/slices/burger-сonstructor-slice';
+import { selectConstructorItems } from '../../services/selectors/burger-constructor-selectors';
 
 export const BurgerConstructor: FC = () => {
   const dispatch = useDispatch();
 
-  const constructorItems = useSelector((state) => state.burgerConstructor);
+  const constructorItems = useSelector(selectConstructorItems);
   const orderRequest = useSelector((state) => state.order.loading);
   const orderModalData = useSelector((state) => state.order.orderData);
 

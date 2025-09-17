@@ -1,6 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from '../../services/store';
+import { isAuthenticated } from '../../services/selectors/auth-selectors';
 
 type TProtectedRouteProps = {
   onlyUnAuth?: boolean;
@@ -11,7 +12,7 @@ export const ProtectedRoute: FC<TProtectedRouteProps> = ({
   onlyUnAuth = false,
   children
 }) => {
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const isAuth = useSelector(isAuthenticated);
   const location = useLocation();
 
   if (onlyUnAuth && isAuth) {
