@@ -6,6 +6,7 @@ import { createOrder } from '../../services/slices/order-slice';
 import { clearOrder } from '../../services/slices/order-slice';
 import { clearConstructor } from '../../services/slices/burger-сonstructor-slice';
 import { selectConstructorItems } from '../../services/selectors/burger-constructor-selectors';
+import { isAuthenticated } from '../../services/selectors/auth-selectors';
 
 export const BurgerConstructor: FC = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,10 @@ export const BurgerConstructor: FC = () => {
   const constructorItems = useSelector(selectConstructorItems);
   const orderRequest = useSelector((state) => state.order.loading);
   const orderModalData = useSelector((state) => state.order.orderData);
+  const isUserAuthenticated = useSelector(isAuthenticated);
 
   const onOrderClick = () => {
+    if (!isUserAuthenticated) return;
     if (!constructorItems.bun || orderRequest) return;
     const ingredientsIds = [
       constructorItems.bun._id,
