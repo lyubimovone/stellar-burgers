@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import { TModalProps } from './type';
 import { ModalUI } from '@ui';
 
-const modalRoot = document.getElementById('modals');
-
 export const Modal: FC<TModalProps> = memo(({ title, onClose, children }) => {
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -17,6 +15,9 @@ export const Modal: FC<TModalProps> = memo(({ title, onClose, children }) => {
       document.removeEventListener('keydown', handleEsc);
     };
   }, [onClose]);
+
+  const modalRoot = document.getElementById('modals');
+  if (!modalRoot) return null;
 
   return ReactDOM.createPortal(
     <ModalUI title={title} onClose={onClose}>
