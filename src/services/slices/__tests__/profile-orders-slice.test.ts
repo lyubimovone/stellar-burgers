@@ -1,5 +1,6 @@
 import {
   profileOrdersReducer,
+  initialState,
   getProfileOrders,
   startOrdersPolling,
   stopOrdersPolling
@@ -36,12 +37,6 @@ const mockProfileOrders: TOrder[] = [
 ];
 
 describe('profileOrders slice', () => {
-  const initialState = {
-    orders: [],
-    loading: false,
-    error: null
-  };
-
   it('должен возвращать начальное состояние', () => {
     expect(profileOrdersReducer(undefined, { type: 'unknown' })).toEqual(
       initialState

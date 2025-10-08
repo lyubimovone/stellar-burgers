@@ -18,7 +18,7 @@ type TAuthState = {
   error: string | null;
 };
 
-const initialState: TAuthState = {
+export const initialState: TAuthState = {
   isAuthenticated: !!getCookie('accessToken'),
   user: null,
   loading: false,

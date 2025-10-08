@@ -1,5 +1,6 @@
 import {
   authReducer,
+  initialState,
   loginUser,
   registerUser,
   logoutUser,
@@ -15,13 +16,6 @@ const mockUser: TUser = {
 };
 
 describe('auth slice', () => {
-  const initialState = {
-    isAuthenticated: false,
-    user: null,
-    loading: false,
-    error: null
-  };
-
   it('должен возвращать начальное состояние', () => {
     expect(authReducer(undefined, { type: 'unknown' })).toEqual(initialState);
   });

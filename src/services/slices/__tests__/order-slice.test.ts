@@ -1,5 +1,6 @@
 import {
   orderReducer,
+  initialState,
   createOrder,
   getOrder,
   clearOrder
@@ -21,12 +22,6 @@ const mockOrder: TOrder = {
 };
 
 describe('order slice', () => {
-  const initialState = {
-    orderData: null,
-    loading: false,
-    error: null
-  };
-
   it('должен возвращать начальное состояние', () => {
     expect(orderReducer(undefined, { type: 'unknown' })).toEqual(initialState);
   });

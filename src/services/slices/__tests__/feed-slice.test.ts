@@ -1,4 +1,4 @@
-import { feedReducer, getFeeds } from '../feed-slice';
+import { feedReducer, initialState, getFeeds } from '../feed-slice';
 import { TOrder, TOrdersData } from '@utils-types';
 
 const mockOrders: TOrder[] = [
@@ -37,14 +37,6 @@ const mockFeedsData: TOrdersData = {
 };
 
 describe('feed slice', () => {
-  const initialState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    loading: false,
-    error: null
-  };
-
   it('должен возвращать начальное состояние', () => {
     expect(feedReducer(undefined, { type: 'unknown' })).toEqual(initialState);
   });
